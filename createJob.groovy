@@ -51,7 +51,7 @@ pipelineJob("$jobName") {
                   
               }
  
- publishers {
+
         downstreamParameterized {
             trigger('$jobName') {
                 condition('STABLE')
@@ -60,6 +60,5 @@ pipelineJob("$jobName") {
                 }
             }
         }
-    }
  
           }
