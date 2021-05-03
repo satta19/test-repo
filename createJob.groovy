@@ -50,4 +50,16 @@ pipelineJob("$jobName") {
           }
                   
               }
+ 
+ publishers {
+        downstreamParameterized {
+            trigger('$jobName') {
+                condition('STABLE')
+                parameters {
+                    currentBuild()
+                }
+            }
+        }
+    }
+ 
           }
