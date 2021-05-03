@@ -34,7 +34,9 @@ pipelineJob("$job_name") {
           cps {
           script('''
       pipeline {
-          agent any
+          agent {
+               label 'java-docker-slave'
+          }
               stages {
                   stage('Stage 1') {
                       steps {
