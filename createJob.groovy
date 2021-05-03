@@ -11,18 +11,16 @@ def hardcoded_param = "name"
 def resolver = build.buildVariableResolver
 def hardcoded_param_value = resolver.resolve(hardcoded_param)
 
-def job = "jobName"
+def job_param = "JOB_NAME"
 def resolver1 = build.buildVariableResolver
-def job_name = resolver1.resolve(job)
+def job_name = "ALM/" + resolver1.resolve(job_param)
 
 // def jobName = "ALM/" + new Random().with {(1..9).collect {(('a'..'z')).join()[ nextInt((('a'..'z')).join().length())]}.join()}
-
-def jobName = "ALM/" + "$job_name"
 
 println "param ${hardcoded_param} value : ${hardcoded_param_value}"
 
 
-pipelineJob("$jobName") {
+pipelineJob("$job_name") {
   logRotator {
       numToKeep(5)
       artifactNumToKeep(1)
