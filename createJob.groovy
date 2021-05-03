@@ -51,14 +51,4 @@ pipelineJob("$jobName") {
                   
               }
  
-
-        downstreamParameterized {
-            trigger('$jobName') {
-                condition('STABLE')
-                parameters {
-                    currentBuild()
-                }
-            }
-        }
- 
           }
