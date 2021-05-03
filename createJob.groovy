@@ -13,7 +13,7 @@ def hardcoded_param_value = resolver.resolve(hardcoded_param)
 
 def job_param = "JOB_NAME"
 def resolver1 = build.buildVariableResolver
-def job_name = "ALM/" + resolver1.resolve(job_param)
+def job_name = resolver1.resolve(job_param)
 
 // def jobName = "ALM/" + new Random().with {(1..9).collect {(('a'..'z')).join()[ nextInt((('a'..'z')).join().length())]}.join()}
 
