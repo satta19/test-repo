@@ -5,13 +5,20 @@ def thr = Thread.currentThread()
 // get current build
 def build = thr?.executable
 
-def jobName = "ALM/" + new Random().with {(1..9).collect {(('a'..'z')).join()[ nextInt((('a'..'z')).join().length())]}.join()}
+
 
 def hardcoded_param = "name"
 def resolver = build.buildVariableResolver
 def hardcoded_param_value = resolver.resolve(hardcoded_param)
- 
- 
+
+def job = "jobName"
+def resolver = build.buildVariableResolver
+def job_name = resolver.resolve(job)
+
+// def jobName = "ALM/" + new Random().with {(1..9).collect {(('a'..'z')).join()[ nextInt((('a'..'z')).join().length())]}.join()}
+
+def jobName = "ALM/" + "$job_name"
+
 println "param ${hardcoded_param} value : ${hardcoded_param_value}"
 
 
