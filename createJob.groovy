@@ -23,7 +23,6 @@ println "param ${hardcoded_param} value : ${hardcoded_param_value}"
 pipelineJob("$job_name") {
   logRotator {
       numToKeep(5)
-      artifactNumToKeep(1)
   }
 
   parameters {
